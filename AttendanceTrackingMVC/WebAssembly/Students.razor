@@ -1,0 +1,20 @@
+@page "/Students"
+@using AttendanceTrackingMVC.Models
+@inject HttpClient Http
+
+<h2 class="text-center mb-5">List of Students</h2>
+
+@if (students == null)
+{
+    <p>Loading...</p>
+}
+
+
+@code {
+    List<Student>? students;
+
+    protected override async Task OnInitializedAsync()
+    {
+        students = await Http.GetFromJsonAsync<List<Student>>("api/students");
+    }
+}

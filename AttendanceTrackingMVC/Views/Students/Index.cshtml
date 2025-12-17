@@ -1,0 +1,63 @@
+﻿@model List<Student>
+@{
+}
+
+<h2 class="text-center mb-5">List of Students</h2>
+
+<div class="row mb-5">
+    <div class="col">
+        <a class="btn btn-primary" asp-controller="Students" asp-action="Create">New Student</a>
+    </div>
+    <div class="col"></div>
+</div>
+
+<form asp-controller="Students" asp-action="Index" method="get">
+    <input type="text" name="studentName" placeholder="Имя студента" />
+    <input type="text" name="group" placeholder="Группа" />
+    <input type="text" name="teacher" placeholder="Преподаватель" />
+    <button class="btn btn-danger" type="submit">Поиск</button>
+    <a class="btn btn-secondary" asp-controller="Students" asp-action="Index">Сбросить</a>
+</form>
+<br />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Student Name</th>
+            <th>Image</th>
+            <th>Number Passes</th>
+            <th>Number Visits</th>
+            <th>Reason</th>
+            <th>Status Reason</th>
+            <th>Group</th>
+            <th>Teacher</th>
+            <th>Create At</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var student in Model)
+        {
+            <tr>
+                <td>@student.Id</td>
+                <td>@student.StudentName</td>
+                <td><img src="/images/@student.ImageFileName" width="100" /></td>
+                <td>@student.NumberPasses</td>
+                <td>@student.NumberVisits</td>
+                <td>@student.Reason</td>
+                <td>@student.StatusReason</td>
+                <td>@student.Group</td>
+                <td>@(student.Teacher)</td>                
+                <td>@student.CreatedAt.ToString("dd/MM/yyyy")</td>
+                <td style="white-space:nowrap">
+                    <a class="btn btn-primary btn-sm" asp-controller="Students" asp-action="Edit"
+                       asp-route-id="@student.Id">Edit</a>
+                    <a class="btn btn-danger btn-sm" asp-controller="Students" asp-action="Delete"
+                       asp-route-id="@student.Id" onclick="return confirm('Are you sure?')">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

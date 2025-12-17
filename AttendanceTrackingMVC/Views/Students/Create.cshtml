@@ -1,0 +1,106 @@
+﻿@model StudentDto
+@{
+}
+
+<div class="row">
+    <div class="col-md-8 mx-auto rounded border p-3">
+        <h2 class="text-center mb-5">New Student</h2>
+
+        <form method="post" enctype="multipart/form-data">
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">StudentName</label>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="StudentName">
+                    <span asp-validation-for="StudentName" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Image</label>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="ImageFile">
+                    <span asp-validation-for="ImageFile" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">NumberPasses</label>
+                <div class="col-sm-8">
+                    <input type="number" class="form-control" asp-for="NumberPasses" />
+                    <span asp-validation-for="NumberPasses" class="text-danger"></span>
+                </div>                   
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">NumberVisits</label>
+                <div class="col-sm-8">
+                    <input type="number" class="form-control" asp-for="NumberVisits">
+                    <span asp-validation-for="NumberVisits" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Reason</label>
+                <div class="col-sm-8">
+                    <select class="form-select" asp-for="Reason">
+                        <option value="">Выберите причину пропуска занятий</option>
+                        <option value="Лежал в стационаре">Лежал в стационаре</option>
+                        <option value="Проспал">Проспал</option>
+                        <option value="Семейные обстоятельства">Семейные обстоятельства</option>
+                        <option value="Болезнь">Болезнь</option>
+                        <option value="Неотложные дела">Неотложные дела</option>
+                        <option value="Прогул">Прогул</option>
+                        <option value="Другое">Другое</option>
+                    </select>
+                    <span asp-validation-for="Reason" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">StatusReason</label>
+                <div class="col-sm-8">
+                    <select class="form-select" asp-for="StatusReason">
+                        <option value="">Выберите статус </option>
+                        <option value="Уважительная причина">Уважительная причина</option>
+                        <option value="Неуважительная причина">Неуважительная причина</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Group</label>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="Group">
+                    <span asp-validation-for="Group" class="text-danger"></span>
+                </div>
+            </div>           
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Teacher</label>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="Teacher">
+                    <span asp-validation-for="Teacher" class="text-danger"></span>
+                </div>
+            </div>  
+            
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Created At</label>
+                <div class="col-sm-8">
+                    <input type="date" class="form-control" asp-for="CreatedAt">
+                    <span asp-validation-for="CreatedAt" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="offset-sm-4 col-sm-4 d-grid">
+                    <button class="btn btn-outline-primary">Submit</button>
+                </div>
+                <div class="col-sm-4 d-grid">
+                    <a class="btn btn-outline-primary" asp-controller="Students" asp-action="Index" role="button">
+                        Cancel
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

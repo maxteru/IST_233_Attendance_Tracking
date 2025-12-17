@@ -1,0 +1,16 @@
+@page "/students/edit/{Id:int}"
+@using AttendanceTrackingMVC.Models
+@inject HttpClient Http
+@inject NavigationManager Nav
+
+<h3>Edit Student</h3>
+
+@if (student == null)
+{
+    <p>Loading...</p>
+}
+
+@code {
+    Student student = new Student();
+}
+
