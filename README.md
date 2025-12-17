@@ -1,5 +1,4 @@
-Модуль учёта посещения занятий
-![https://github.com/maxteru/IST_233_Attendance_Tracking/blob/master/0.png]
+![Модуль учёта посещения занятий](0.png)
 
 Инструкция по запуску:
 
